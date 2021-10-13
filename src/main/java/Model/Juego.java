@@ -33,4 +33,16 @@ public class Juego {
     public String[][] getTablero() {
         return tablero;
     }
+
+    public void turno(int pos){
+
+    }
+    public void pintarMarca(int pos,String marca){
+
+
+    }
+    public void setMatrixValue(int x,int y,String marca){
+
+
+    }
 }

@@ -44,4 +44,9 @@ public class JuegoTest {
         tableroTest[2][2]="O";
         Assertions.assertArrayEquals(juego.getTablero(),tableroTest);
     }
+    @Test
+    void turno(){
+
+
+    }
 }

@@ -35,7 +35,7 @@ public class Juego {
     }
 
     public void turno(int pos){
-
+    //Mirar que tunro ers y llama a pintarMarca
     }
     public boolean pintarMarca(int pos,String marca){
         boolean result=false;

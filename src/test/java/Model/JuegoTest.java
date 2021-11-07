@@ -46,6 +46,10 @@ public class JuegoTest {
     }
     @Test
     void turno(){
+        juego.turno(0);
+        Assertions.assertEquals(juego.getTurno(), 1);
+        juego.turno(3);
+        Assertions.assertEquals(juego.getTurno(), 0);
 
 
     }

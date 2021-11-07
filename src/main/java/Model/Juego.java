@@ -35,7 +35,12 @@ public class Juego {
     }
 
     public void turno(int pos){
-    //Mirar que tunro ers y llama a pintarMarca
+        if(this.turno == 0){
+            this.turno = 1;
+        }else{
+            this.turno = 0;
+        }
+
     }
     public boolean pintarMarca(int pos,String marca){
         boolean result=false;

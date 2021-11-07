@@ -34,12 +34,21 @@ public class Juego {
         return tablero;
     }
 
-    public void turno(int pos){
+    public boolean turno(int pos){
+        boolean pasar_turno;
+
         if(this.turno == 0){
-            this.turno = 1;
+            pasar_turno = pintarMarca(pos,cruz);
+            if(pasar_turno) {
+                this.turno = 1;
+            }
         }else{
-            this.turno = 0;
+            pasar_turno = pintarMarca(pos, circulo);
+            if(pasar_turno) {
+                this.turno = 0;
+            }
         }
+        return pasar_turno;
 
     }
     public boolean pintarMarca(int pos,String marca){

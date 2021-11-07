@@ -46,11 +46,28 @@ public class JuegoTest {
     }
     @Test
     void turno(){
-        juego.turno(0);
+        String[][] tableroTest= { {null,null,null,},
+                                  {null,null,null},
+                                  {null,null,null} };
+        //empezamos en turno 0, pintamos en pos 1
+        Assertions.assertTrue(juego.turno(1));
         Assertions.assertEquals(juego.getTurno(), 1);
-        juego.turno(3);
+
+        //ahora estamos en turno 1, pintmos en 3
+        Assertions.assertTrue(juego.turno(3));
         Assertions.assertEquals(juego.getTurno(), 0);
 
+        //estamos en turno 0, pintamos en 1, no debemos cambiar de turno.
+        Assertions.assertFalse(juego.turno(1));
+        Assertions.assertEquals(juego.getTurno(),0);
+
+        //pintamos fuera de rango, no cambiamos de turno
+        Assertions.assertFalse(juego.turno(0));
+        Assertions.assertEquals(juego.getTurno(),0);
+
+        //pintamos fuera de rango, no cambiamos de turno
+        Assertions.assertFalse(juego.turno(10));
+        Assertions.assertEquals(juego.getTurno(),0);
 
     }
 }

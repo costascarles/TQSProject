@@ -97,6 +97,35 @@ public class Juego {
         return false;
     }
     public boolean winner(String[][] tablero, String marca){
-        return true;
+        //busqueda ganador por diagonales
+        if(tablero[1][1]  == marca){
+            if(tablero[0][0] == marca && tablero[2][2] == marca)
+            {
+                return true;
+            }
+            if(tablero[0][2] == marca  && tablero[2][0] == marca){
+                return true;
+            }
+        }
+
+        for(int i = 0; i < 3; i ++){
+            int count_files = 0;
+            int count_columnes =0;
+            //filas y columnas
+            for(int j = 0; j < 3; j ++)
+            {
+                if(tablero[i][j] == marca){
+                    count_files++;
+                }
+                if(tablero[j][i] == marca){
+                    count_columnes++;
+                }
+            }
+            if(count_files == 3 || count_columnes == 3){
+                return true;
+            }
+        }
+
+        return false;
     }
 }

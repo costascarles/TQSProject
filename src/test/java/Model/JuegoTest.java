@@ -77,6 +77,7 @@ public class JuegoTest {
                                   {null,null,null} };
         //no condicion de victoria
         Assertions.assertFalse(juego.winner(tableroTest,juego.getCruz()));
+        Assertions.assertFalse(juego.winner(tableroTest,juego.getCirculo()));
 
         String[][] tableroTest2= { {"X",null,null},
                                    {null,"X",null},
@@ -88,7 +89,7 @@ public class JuegoTest {
                                      {null,"O",null},
                                      {"O",null,null} };
         //condicion de victoria diagonal
-        Assertions.assertTrue(juego.winner(tableroTest2_1,juego.getCruz()));
+        Assertions.assertTrue(juego.winner(tableroTest2_1,juego.getCirculo()));
 
         String[][] tableroTest3= { {"X",null,"X"},
                                    {null,"X",null},
@@ -131,7 +132,7 @@ public class JuegoTest {
                                    {null,null,"X"} };
         //condicion de victoria columna
         Assertions.assertTrue(juego.winner(tableroTest8,juego.getCruz()));
-        Assertions.assertTrue(juego.winner(tableroTest8,juego.getCirculo()));
+        Assertions.assertFalse(juego.winner(tableroTest8,juego.getCirculo()));
 
 
     }

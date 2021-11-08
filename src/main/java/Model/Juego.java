@@ -96,4 +96,7 @@ public class Juego {
 
         return false;
     }
+    public boolean winner(String[][] tablero, String marca){
+        return true;
+    }
 }

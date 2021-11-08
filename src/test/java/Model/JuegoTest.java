@@ -106,8 +106,8 @@ public class JuegoTest {
         Assertions.assertTrue(juego.winner(tableroTest4,juego.getCirculo()));
         Assertions.assertFalse(juego.winner(tableroTest4,juego.getCruz()));
 
-        String[][] tableroTest5= { {"X",null,"X"},
-                                   {"X","X","X"},
+        String[][] tableroTest5= { {"X","X","X"},
+                                   {"X","O","X"},
                                    {"O",null,"O"} };
         //condicion de victoria fila
         Assertions.assertTrue(juego.winner(tableroTest5,juego.getCruz()));
@@ -133,6 +133,23 @@ public class JuegoTest {
         //condicion de victoria columna
         Assertions.assertTrue(juego.winner(tableroTest8,juego.getCruz()));
         Assertions.assertFalse(juego.winner(tableroTest8,juego.getCirculo()));
+
+
+    }
+    @Test
+    void draw(){
+        String[][] tableroTest=new String[3][3];
+        Assertions.assertFalse(juego.draw(tableroTest));
+
+        String[][] tableroTest2= { {"X","X","X"},
+                                   {"X","X","O"},
+                                   {"O","X","O"} };
+        Assertions.assertTrue(juego.draw(tableroTest2));
+
+        String[][] tableroTest3= { {"X","X","X"},
+                                   {"X","X","O"},
+                                   {"O",null,"O"} };
+        Assertions.assertFalse(juego.draw(tableroTest3));
 
 
     }

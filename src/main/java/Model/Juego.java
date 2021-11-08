@@ -6,12 +6,14 @@ public class Juego {
     private String circulo;
     private boolean ganador;
     private String[][] tablero;
+    private boolean empate;
     public Juego(){
         this.turno = 0;
         this.cruz = "X";
         this.circulo = "O";
         this.ganador = false;
         this.tablero = new String[3][3];
+        this.empate = false;
     }
 
     public int getTurno() {
@@ -126,6 +128,9 @@ public class Juego {
             }
         }
 
+        return false;
+    }
+    public boolean draw(String[][] tablero){
         return false;
     }
 }

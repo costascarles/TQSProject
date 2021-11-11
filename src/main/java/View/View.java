@@ -14,7 +14,7 @@ public class View {
     public JButton casilla7;
     public JButton casilla8;
     public JButton casilla9;
-    View(){
+    public View(){
         tablero = new JFrame("Tablero");
         casilla1 = new JButton("-");
         casilla2 = new JButton("-");

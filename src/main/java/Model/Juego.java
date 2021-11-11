@@ -4,17 +4,21 @@ public class Juego {
     private int turno;
     private String cruz;
     private String circulo;
-    private boolean ganador;
+    private int ganador;
     private String[][] tablero;
     private boolean empate;
     public Juego(){
         this.turno = 0;
         this.cruz = "X";
         this.circulo = "O";
-        this.ganador = false;
+        this.ganador = 0;
         this.tablero = new String[3][3];
         this.empate = false;
     }
+    private boolean marcar(int posición){
+        return false;
+    }
+
 
     public int getTurno() {
         return turno;
@@ -28,7 +32,7 @@ public class Juego {
         return circulo;
     }
 
-    public boolean isGanador() {
+    public int isGanador() {
         return ganador;
     }
 
@@ -36,21 +40,29 @@ public class Juego {
         return tablero;
     }
 
-    public boolean turno(int pos){
+    public String turno(int pos){
         boolean pasar_turno;
-
+        String marca="";
         if(this.turno == 0){
             pasar_turno = pintarMarca(pos,cruz);
             if(pasar_turno) {
                 this.turno = 1;
+                marca=cruz;
+                if(winner(this.tablero,cruz)){
+                    this.ganador=1;
+                }
             }
         }else{
             pasar_turno = pintarMarca(pos, circulo);
             if(pasar_turno) {
                 this.turno = 0;
+                marca=circulo;
+                if(winner(this.tablero,circulo)){
+                    this.ganador=2;
+                }
             }
         }
-        return pasar_turno;
+        return marca;
 
     }
     public boolean pintarMarca(int pos,String marca){
@@ -87,7 +99,7 @@ public class Juego {
         return result;
     }
     public boolean setMatrixValue(int x,int y,String marca){
-        if (x<3 && x>-1 && y<3 && y>-1){
+        if (x<3 && x>-1 && y<3 && y>-1){ //NO hace falta solo aumenta complejidad
             if(tablero[x][y] == null){
                 tablero[x][y]=marca;
                 return true;
@@ -108,6 +120,7 @@ public class Juego {
             if(tablero[0][2] == marca  && tablero[2][0] == marca){
                 return true;
             }
+
         }
 
         for(int i = 0; i < 3; i ++){

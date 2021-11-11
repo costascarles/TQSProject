@@ -1,4 +1,4 @@
-package mvc3nraya;
+
 
 import Controler.Controler;
 import Model.Juego;

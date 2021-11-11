@@ -7,6 +7,8 @@ public class Juego {
     private int ganador;
     private String[][] tablero;
     private boolean empate;
+    private int X_victories = 0;
+    private int O_victories = 0;
     public Juego(){
         this.turno = 0;
         this.cruz = "X";
@@ -18,7 +20,12 @@ public class Juego {
     private boolean marcar(int posición){
         return false;
     }
-
+    public int getXVictories(){
+        return X_victories;
+    }
+    public int getOVictories(){
+        return O_victories;
+    }
 
     public int getTurno() {
         return turno;
@@ -42,7 +49,7 @@ public class Juego {
 
     public String turno(int pos){
         boolean pasar_turno;
-        String marca="";
+        String marca= "";
         if(this.turno == 0){
             pasar_turno = pintarMarca(pos,cruz);
             if(pasar_turno) {
@@ -50,7 +57,13 @@ public class Juego {
                 marca=cruz;
                 if(winner(this.tablero,cruz)){
                     this.ganador=1;
+                }else{
+                    if(draw(this.tablero)){
+                        this.ganador=3;
+                    }
                 }
+            }else{
+                marca=circulo;
             }
         }else{
             pasar_turno = pintarMarca(pos, circulo);
@@ -59,8 +72,12 @@ public class Juego {
                 marca=circulo;
                 if(winner(this.tablero,circulo)){
                     this.ganador=2;
+                }else{
+                    if(draw(this.tablero)){
+                        this.ganador=3;
+                    }
                 }
-            }
+            }else{marca=cruz;}
         }
         return marca;
 
@@ -152,5 +169,20 @@ public class Juego {
             }
         }
         return true;
+    }
+
+    public void new_game() {
+        if (this.ganador != 0) {
+            this.tablero = new String[3][3];
+            if(this.ganador != 3) {
+                if (this.ganador == 1) {
+                    this.X_victories++;
+                } else {
+                    this.O_victories++;
+                }
+            }
+            this.turno = 0;
+            this.ganador = 0;
+        }
     }
 }

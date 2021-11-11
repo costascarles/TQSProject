@@ -52,21 +52,23 @@ public class JuegoTest {
         //empezamos en turno 0, pintamos en pos 1
         Assertions.assertEquals(juego.turno(1),"X");
         Assertions.assertEquals(juego.getTurno(), 1);
+        Assertions.assertEquals(juego.turno(1),"X");
+
 
         //ahora estamos en turno 1, pintmos en 3
         Assertions.assertEquals(juego.turno(3),"O");
         Assertions.assertEquals(juego.getTurno(), 0);
 
         //estamos en turno 0, pintamos en 1, no debemos cambiar de turno.
-        Assertions.assertEquals(juego.turno(1),"");
+        Assertions.assertEquals(juego.turno(1),"O");
         Assertions.assertEquals(juego.getTurno(),0);
 
         //pintamos fuera de rango, no cambiamos de turno
-        Assertions.assertEquals(juego.turno(0),"");
+        Assertions.assertEquals(juego.turno(0),"O");
         Assertions.assertEquals(juego.getTurno(),0);
 
         //pintamos fuera de rango, no cambiamos de turno
-        Assertions.assertEquals(juego.turno(10),"");
+        Assertions.assertEquals(juego.turno(10),"O");
         Assertions.assertEquals(juego.getTurno(),0);
 
     }
@@ -151,6 +153,80 @@ public class JuegoTest {
                                    {"O",null,"O"} };
         Assertions.assertFalse(juego.draw(tableroTest3));
 
+    }
+    @Test
+    void new_game(){
+        int X_victories = 0;
+        int O_victories = 0;
+        //situació de victoria de X
+        juego.turno(1); // x pos 1
+        juego.turno(2); // O pos 2
+        juego.turno(4); // X pos 4
+        juego.turno(3); // 0 pos 3
+        juego.turno(7); // X pos 7
+        // condició de victoria
+            // X O O
+            // X _ _
+            // X _ _
+        X_victories ++;
+        juego.new_game(); // nova partida
+        Assertions.assertEquals(juego.getXVictories(),X_victories); // 1 victoria
+        Assertions.assertEquals(juego.getOVictories(), O_victories); // 0 victories
+        Assertions.assertEquals(juego.getTurno(), 0);
+        Assertions.assertEquals(juego.isGanador(),0);
+        Assertions.assertArrayEquals(juego.getTablero(),new String[3][3]);
+
+        //situació de victoria de O
+        juego.turno(1); // x pos 1
+        juego.turno(2); // O pos 2
+        juego.turno(4); // X pos 4
+        juego.turno(5); // 0 pos 5
+        juego.turno(3); // X pos 3
+        juego.turno(8); // O pos 8
+        // condició de victoria
+        // X O X
+        // X O _
+        // _ O _
+        O_victories ++;
+        juego.new_game(); // nova partida
+        Assertions.assertEquals(juego.getXVictories(),X_victories); // 1 victoria
+        Assertions.assertEquals(juego.getOVictories(), O_victories); // 1 victories
+        Assertions.assertEquals(juego.getTurno(), 0);
+        Assertions.assertEquals(juego.isGanador(),0);
+        Assertions.assertArrayEquals(juego.getTablero(),new String[3][3]);
+
+        // condició no victoria
+        juego.turno(1); // x pos 1
+        String[][] tableroTest= { {"X",null,null},
+                                  {null,null,null},
+                                  {null,null,null} };
+        juego.new_game(); // nova partida
+        Assertions.assertEquals(juego.getXVictories(),X_victories); // 1 victoria
+        Assertions.assertEquals(juego.getOVictories(), O_victories); // 1 victories
+        Assertions.assertNotEquals(juego.getTurno(), 0);
+        Assertions.assertEquals(juego.isGanador(),0);
+        Assertions.assertArrayEquals(juego.getTablero(),tableroTest);
+
+        // condició empat
+        juego.turno(1); // x pos 1
+        juego.turno(2); // O pos 2
+        juego.turno(4); // X pos 4
+        juego.turno(5); // 0 pos 5
+        juego.turno(3); // X pos 3
+        juego.turno(9); // O pos 9
+        juego.turno(8); // X pos 8
+        juego.turno(7); // O pos 7
+        juego.turno(6); // O pos 6
+        // empat
+        // X O X
+        // X O O
+        // O X O
+        juego.new_game(); // nova partida
+        Assertions.assertEquals(juego.getXVictories(),X_victories); // 1 victoria
+        Assertions.assertEquals(juego.getOVictories(), O_victories); // 1 victories
+        Assertions.assertEquals(juego.getTurno(), 0);
+        Assertions.assertEquals(juego.isGanador(),0);
+        Assertions.assertArrayEquals(juego.getTablero(),new String[3][3]);
 
     }
 }

@@ -3,7 +3,7 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 
-public class View {
+public class View  extends javax.swing.JFrame{
     JFrame tablero;
     public JButton casilla1;
     public JButton casilla2;

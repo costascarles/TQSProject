@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 public class Controler implements ActionListener {
     private  View view;
     private Juego juego;
-    private String title = "TDD 3 en raya development";
+    private String title = "3 en raya";
 
     public Controler(View vista, Juego juego){
         this.view= vista;
@@ -66,7 +66,13 @@ public class Controler implements ActionListener {
     }
     private void mensaje(String s)
     {
-        int seleccion = JOptionPane.showOptionDialog(null,"Gano el jugador " + s + "\n ¿Que desea hacer?", "Fin del juego",
+        String message;
+        if(this.juego.isGanador() == 3){
+            message = s +"\n ¿Que desea hacer?";
+        }else{
+            message = "Gano el jugador " + s + "\n ¿Que desea hacer?";
+        }
+        int seleccion = JOptionPane.showOptionDialog(null,message, "Fin del juego",
                 JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
                 null,    // null para icono por defecto.
@@ -76,8 +82,8 @@ public class Controler implements ActionListener {
         if (seleccion != -1)
             if( (seleccion+1)==1 )
             {
-                //this.juego.Jugar_otra_vez();
-               // this.vista.setTitle(titulo);
+                this.juego.new_game();
+                this.view.setTitle(title);
                 this.view.casilla1.setText( "" );
                 this.view.casilla2.setText( "" );
                 this.view.casilla3.setText( "" );

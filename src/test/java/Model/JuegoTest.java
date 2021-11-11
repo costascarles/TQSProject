@@ -20,7 +20,7 @@ public class JuegoTest {
         Assertions.assertEquals(juego.getTurno(),0);
         Assertions.assertEquals(juego.getCruz(),"X");
         Assertions.assertEquals(juego.getCirculo(),"O");
-        Assertions.assertFalse(juego.isGanador());
+        Assertions.assertEquals(juego.isGanador(),0);
         Assertions.assertArrayEquals(juego.getTablero(),new String[3][3]);
     }
     @Test
@@ -50,23 +50,23 @@ public class JuegoTest {
                                   {null,null,null},
                                   {null,null,null} };
         //empezamos en turno 0, pintamos en pos 1
-        Assertions.assertTrue(juego.turno(1));
+        Assertions.assertEquals(juego.turno(1),"X");
         Assertions.assertEquals(juego.getTurno(), 1);
 
         //ahora estamos en turno 1, pintmos en 3
-        Assertions.assertTrue(juego.turno(3));
+        Assertions.assertEquals(juego.turno(3),"O");
         Assertions.assertEquals(juego.getTurno(), 0);
 
         //estamos en turno 0, pintamos en 1, no debemos cambiar de turno.
-        Assertions.assertFalse(juego.turno(1));
+        Assertions.assertEquals(juego.turno(1),"");
         Assertions.assertEquals(juego.getTurno(),0);
 
         //pintamos fuera de rango, no cambiamos de turno
-        Assertions.assertFalse(juego.turno(0));
+        Assertions.assertEquals(juego.turno(0),"");
         Assertions.assertEquals(juego.getTurno(),0);
 
         //pintamos fuera de rango, no cambiamos de turno
-        Assertions.assertFalse(juego.turno(10));
+        Assertions.assertEquals(juego.turno(10),"");
         Assertions.assertEquals(juego.getTurno(),0);
 
     }

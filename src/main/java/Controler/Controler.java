@@ -19,6 +19,7 @@ public class Controler implements ActionListener {
 
     }
     public void initView(){
+        this.view.setLocationRelativeTo(null);
         this.view.casilla1.addActionListener(this);
         this.view.casilla2.addActionListener(this);
         this.view.casilla3.addActionListener(this);
@@ -28,7 +29,6 @@ public class Controler implements ActionListener {
         this.view.casilla7.addActionListener(this);
         this.view.casilla8.addActionListener(this);
         this.view.casilla9.addActionListener(this);
-
     }
 
     public void actionPerformed(ActionEvent e){
@@ -83,7 +83,7 @@ public class Controler implements ActionListener {
             if( (seleccion+1)==1 )
             {
                 this.juego.new_game();
-                this.view.setTitle(title);
+                //this.view.setTitle(title);
                 this.view.casilla1.setText( "" );
                 this.view.casilla2.setText( "" );
                 this.view.casilla3.setText( "" );
@@ -93,6 +93,8 @@ public class Controler implements ActionListener {
                 this.view.casilla7.setText( "" );
                 this.view.casilla8.setText( "" );
                 this.view.casilla9.setText( "" );
+                this.view.O_victories.setText(String.valueOf(this.juego.getOVictories()));
+                this.view.X_victories.setText(String.valueOf(this.juego.getXVictories()));
             }
             else
                 System.exit(0);

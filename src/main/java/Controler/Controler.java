@@ -32,7 +32,10 @@ public class Controler implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e){
+        System.out.println("evento e" + e);
+        System.out.println("botton no sacado de evento" +  this.view.casilla1);
         Object button= e.getSource();
+        System.out.println("botton sacado de evento" + button);
         if (this.juego.isGanador()==0){
             if( button == this.view.casilla1 )
                 this.view.casilla1.setText( this.juego.turno(1) );

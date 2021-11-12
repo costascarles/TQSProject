@@ -1,6 +1,8 @@
 package Controler;
 
 import Model.Juego;
+import Model.JuegoI;
+import Model.MockJuego;
 import View.View;
 
 import javax.swing.*;
@@ -10,10 +12,10 @@ import java.awt.event.ActionListener;
 
 public class Controler implements ActionListener {
     private  View view;
-    private Juego juego;
+    private JuegoI juego;
     private String title = "3 en raya";
 
-    public Controler(View vista, Juego juego){
+    public Controler(View vista, JuegoI juego){
         this.view= vista;
         this.juego=juego;
 

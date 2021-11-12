@@ -1,6 +1,6 @@
 package Model;
 
-public class Juego {
+public class Juego extends JuegoI {
     private int turno;
     private String cruz;
     private String circulo;

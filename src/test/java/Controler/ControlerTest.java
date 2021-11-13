@@ -24,7 +24,24 @@ public class ControlerTest {
     controler = new Controler(vista, juego);
   }
   @Test
-  void mensaje(){
+  void Panelmensaje(){
+    
+    juego.setGanador(1);
+    String message;
+    message = controler.CreateMessage(" 'X' ");
+    Assertions.assertEquals(message, "Gano el jugador " + " 'X' " + "\n ¿Que desea hacer?");
+
+    juego.setGanador(2);
+    message = controler.CreateMessage(" 'O' ");
+    Assertions.assertEquals(message, "Gano el jugador " + " 'O' " + "\n ¿Que desea hacer?");
+
+    juego.setGanador(3);
+    message = controler.CreateMessage(" 'Es un empate' ");
+    Assertions.assertEquals(message, " 'Es un empate' " +"\n ¿Que desea hacer?");
+
+    juego.setGanador(0);
+    message = controler.CreateMessage("cualquier cosa");
+    Assertions.assertEquals(message, "error condicion no cumplida");
 
   }
   @Test

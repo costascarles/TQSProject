@@ -34,4 +34,5 @@ public class MockJuego extends Juego{
     if(tabla[7] == "X")
       ganador = 3;
   }
+  public void setGanador(int i){ganador = i;}
 }

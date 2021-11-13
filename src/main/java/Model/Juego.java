@@ -1,6 +1,6 @@
 package Model;
 
-public class Juego extends JuegoI {
+public class Juego {
     private int turno;
     private String cruz;
     private String circulo;
@@ -31,6 +31,8 @@ public class Juego extends JuegoI {
         return turno;
     }
 
+    public void setTurno(int i) { turno = i; }
+
     public String getCruz() {
         return cruz;
     }
@@ -42,6 +44,7 @@ public class Juego extends JuegoI {
     public int isGanador() {
         return ganador;
     }
+    public void setGanador(int i){ganador = i;}
 
     public String[][] getTablero() {
         return tablero;

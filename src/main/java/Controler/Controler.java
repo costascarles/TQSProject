@@ -35,10 +35,10 @@ public class Controler implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e){
-        //System.out.println("evento e" + e);
-        //System.out.println("botton no sacado de evento" +  this.view.casilla1);
+
         Object button= e.getSource();
-        //System.out.println("botton sacado de evento" + button);
+
+
         if (this.juego.isGanador()==0){
             if( button == this.view.casilla1 )
                 this.view.casilla1.setText(this.juego.turno(1));
@@ -74,11 +74,12 @@ public class Controler implements ActionListener {
     private void mensaje(String s)
     {
         String message;
-        if(this.juego.isGanador() == 3){
+        /*if(this.juego.isGanador() == 3){
             message = s +"\n ¿Que desea hacer?";
         }else{
             message = "Gano el jugador " + s + "\n ¿Que desea hacer?";
-        }
+        }*/
+        message = CreateMessage(s);
         int seleccion = view.mensajes(message);
         //int seleccion = Mockseleccion(message);
         if (seleccion != -1)
@@ -101,20 +102,18 @@ public class Controler implements ActionListener {
             else
                 System.exit(0);
     }
-
-    /*public int seleccion(String message){
-        int seleccion = JOptionPane.showOptionDialog(null,message, "Fin del juego",
-            JOptionPane.YES_NO_CANCEL_OPTION,
-            JOptionPane.QUESTION_MESSAGE,
-            null,    // null para icono por defecto.
-            new Object[] { " Jugar otra vez ", " Salir de Programa " },
-            "Jugar otra vez");
-
-        return seleccion;
-    }*/
-
-    /*public int Mockseleccion(String message){
-        return 0;
-    }*/
+    public String CreateMessage(String s){
+        String message;
+        System.out.println("Gnador "+ juego.isGanador());
+        if(this.juego.isGanador() == 3){
+            message = s +"\n ¿Que desea hacer?";
+        }else{
+            if(this.juego.isGanador() == 2 || this.juego.isGanador() == 1)
+                message = "Gano el jugador " + s + "\n ¿Que desea hacer?";
+            else
+                message = "error condicion no cumplida";
+        }
+        return message;
+    }
 
 }

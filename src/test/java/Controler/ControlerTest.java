@@ -6,6 +6,8 @@ import View.View;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 
@@ -20,6 +22,10 @@ public class ControlerTest {
     juego = new MockJuego();
     vista = new MockView();
     controler = new Controler(vista, juego);
+  }
+  @Test
+  void mensaje(){
+
   }
   @Test
   void Controlador(){
@@ -58,6 +64,18 @@ public class ControlerTest {
     Assertions.assertEquals(vista.casilla5.getText(),"X");
     Assertions.assertEquals(vista.X_victories.getText(),"0");
     Assertions.assertEquals(vista.O_victories.getText(),"0");
+
+
+    //Fuera de rango
+    JButton casilla10 = new JButton("_");
+    e = new ActionEvent(casilla10, 163," ");
+    controler.actionPerformed(e);
+    Assertions.assertArrayEquals(juego.getTabla(),TestTabla);
+    Assertions.assertEquals(juego.isGanador(), 0);
+    Assertions.assertNotEquals(casilla10.getText(),"X");
+    Assertions.assertEquals(vista.X_victories.getText(),"0");
+    Assertions.assertEquals(vista.O_victories.getText(),"0");
+
 
     //Test Condicion de victoria
 

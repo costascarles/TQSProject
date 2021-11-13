@@ -4,7 +4,7 @@ import Model.Juego;
 import Model.JuegoI;
 import Model.MockJuego;
 import View.View;
-
+import View.ViewMessage;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,6 +14,7 @@ public class Controler implements ActionListener {
     private  View view;
     private JuegoI juego;
     private String title = "3 en raya";
+
 
     public Controler(View vista, JuegoI juego){
         this.view= vista;
@@ -78,8 +79,8 @@ public class Controler implements ActionListener {
         }else{
             message = "Gano el jugador " + s + "\n ¿Que desea hacer?";
         }
-        //int seleccion = seleccion(message);
-        int seleccion = Mockseleccion(message);
+        int seleccion = view.mensajes(message);
+        //int seleccion = Mockseleccion(message);
         if (seleccion != -1)
             if( (seleccion+1)==1 )
             {
@@ -101,7 +102,7 @@ public class Controler implements ActionListener {
                 System.exit(0);
     }
 
-    public int seleccion(String message){
+    /*public int seleccion(String message){
         int seleccion = JOptionPane.showOptionDialog(null,message, "Fin del juego",
             JOptionPane.YES_NO_CANCEL_OPTION,
             JOptionPane.QUESTION_MESSAGE,
@@ -110,10 +111,10 @@ public class Controler implements ActionListener {
             "Jugar otra vez");
 
         return seleccion;
-    }
+    }*/
 
-    public int Mockseleccion(String message){
+    /*public int Mockseleccion(String message){
         return 0;
-    }
+    }*/
 
 }

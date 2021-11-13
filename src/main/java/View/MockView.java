@@ -18,4 +18,7 @@ public class MockView extends View{
     X_victories = new JLabel("0");
     O_victories = new JLabel("0");
   }
+  public int mensajes(String mensaje){
+    return 0;
+  }
 }

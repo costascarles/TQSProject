@@ -19,6 +19,8 @@ public class View  extends javax.swing.JFrame {
     public JButton casilla9;
     public JLabel X_victories;
     public JLabel O_victories;
+    ViewMessage mensajes;
+
 
     public View(){
         game = new JFrame("3 en raya");
@@ -78,6 +80,12 @@ public class View  extends javax.swing.JFrame {
         X.setBorder(BorderFactory.createTitledBorder("Jugador X"));
 
         game.setVisible(true);
+    }
+
+    public int mensajes(String mensaje){
+        mensajes = new ViewMessage();
+        int seleccion = mensajes.panel_JugarOtraVez(mensaje);
+        return seleccion;
     }
 }
 

@@ -1,8 +1,7 @@
 package Model;
 
-public class MockJuego extends JuegoI{
+public class MockJuego extends Juego{
   private int ganador;
-  private String marca;
   private int victories;
   private String[] tabla;
 

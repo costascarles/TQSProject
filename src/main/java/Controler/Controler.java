@@ -12,11 +12,11 @@ import java.awt.event.ActionListener;
 
 public class Controler implements ActionListener {
     private  View view;
-    private JuegoI juego;
+    private Juego juego;
     private String title = "3 en raya";
 
 
-    public Controler(View vista, JuegoI juego){
+    public Controler(View vista, Juego juego){
         this.view= vista;
         this.juego=juego;
 

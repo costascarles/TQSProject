@@ -5,7 +5,7 @@ import javax.swing.*;
 //soposem que no tenim encara la Vista feta
 //de l'estil model-vista-controlador
 public class MockView extends View{
-  MockView(){
+  public MockView(){
     casilla1 = new JButton("");
     casilla2 = new JButton("");
     casilla3 = new JButton("");

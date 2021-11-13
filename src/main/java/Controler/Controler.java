@@ -34,13 +34,13 @@ public class Controler implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e){
-        System.out.println("evento e" + e);
-        System.out.println("botton no sacado de evento" +  this.view.casilla1);
+        //System.out.println("evento e" + e);
+        //System.out.println("botton no sacado de evento" +  this.view.casilla1);
         Object button= e.getSource();
-        System.out.println("botton sacado de evento" + button);
+        //System.out.println("botton sacado de evento" + button);
         if (this.juego.isGanador()==0){
             if( button == this.view.casilla1 )
-                this.view.casilla1.setText( this.juego.turno(1) );
+                this.view.casilla1.setText(this.juego.turno(1));
             else if(button == this.view.casilla2)
                 this.view.casilla2.setText( this.juego.turno(2) );
             else if(button == this.view.casilla3)
@@ -58,8 +58,9 @@ public class Controler implements ActionListener {
             else if(button == this.view.casilla9)
                 this.view.casilla9.setText( this.juego.turno(9) );
 
+
             if (this.juego.isGanador()==1)
-                 mensaje(" 'X' ");
+                mensaje(" 'X' ");
             else if( this.juego.isGanador()== 2 )
                 mensaje(" 'O' ");
             else if( this.juego.isGanador()== 3 )
@@ -77,16 +78,12 @@ public class Controler implements ActionListener {
         }else{
             message = "Gano el jugador " + s + "\n ¿Que desea hacer?";
         }
-        int seleccion = JOptionPane.showOptionDialog(null,message, "Fin del juego",
-                JOptionPane.YES_NO_CANCEL_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,    // null para icono por defecto.
-                new Object[] { " Jugar otra vez ", " Salir de Programa " },
-                "Jugar otra vez");
-
+        //int seleccion = seleccion(message);
+        int seleccion = Mockseleccion(message);
         if (seleccion != -1)
             if( (seleccion+1)==1 )
             {
+                System.out.println("Entramos en segundo if");
                 this.juego.new_game();
                 //this.view.setTitle(title);
                 this.view.casilla1.setText( "" );
@@ -103,6 +100,21 @@ public class Controler implements ActionListener {
             }
             else
                 System.exit(0);
+    }
+
+    public int seleccion(String message){
+        int seleccion = JOptionPane.showOptionDialog(null,message, "Fin del juego",
+            JOptionPane.YES_NO_CANCEL_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,    // null para icono por defecto.
+            new Object[] { " Jugar otra vez ", " Salir de Programa " },
+            "Jugar otra vez");
+
+        return seleccion;
+    }
+
+    public int Mockseleccion(String message){
+        return 0;
     }
 
 }

@@ -78,7 +78,6 @@ public class View  extends javax.swing.JFrame {
         X.setBorder(BorderFactory.createTitledBorder("Jugador X"));
 
         game.setVisible(true);
-
-        System.out.println("boton en view" + casilla1);
     }
 }
+

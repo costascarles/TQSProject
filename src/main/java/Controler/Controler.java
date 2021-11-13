@@ -83,7 +83,6 @@ public class Controler implements ActionListener {
         if (seleccion != -1)
             if( (seleccion+1)==1 )
             {
-                System.out.println("Entramos en segundo if");
                 this.juego.new_game();
                 //this.view.setTitle(title);
                 this.view.casilla1.setText( "" );

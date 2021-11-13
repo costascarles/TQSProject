@@ -32,6 +32,7 @@ public class ControlerTest {
     TestTabla[0] = "X";
     Assertions.assertArrayEquals(juego.getTabla(),TestTabla);
     Assertions.assertEquals(juego.isGanador(), 0);
+    Assertions.assertEquals(vista.casilla1.getText(),"X");
 
 
     //Test printar posicion 9 --- frontera
@@ -41,6 +42,7 @@ public class ControlerTest {
     TestTabla[8] = "X";
     Assertions.assertArrayEquals(juego.getTabla(),TestTabla);
     Assertions.assertEquals(juego.isGanador(), 0);
+    Assertions.assertEquals(vista.casilla9.getText(),"X");
 
     //Test printar posicion 5
     //juego.setGanador(0);
@@ -49,6 +51,7 @@ public class ControlerTest {
     TestTabla[4] = "X";
     Assertions.assertArrayEquals(juego.getTabla(),TestTabla);
     Assertions.assertEquals(juego.isGanador(), 0);
+    Assertions.assertEquals(vista.casilla5.getText(),"X");
 
     //Test Condicion de victoria
 
@@ -59,6 +62,10 @@ public class ControlerTest {
     Assertions.assertArrayEquals(juego.getTabla(),TestTabla);
     Assertions.assertEquals(juego.isGanador(), 0);
     Assertions.assertEquals(juego.getXVictories(), 1);
+    Assertions.assertEquals(vista.casilla1.getText(),"");
+    Assertions.assertEquals(vista.casilla9.getText(),"");
+    Assertions.assertEquals(vista.casilla5.getText(),"");
+    Assertions.assertEquals(vista.casilla6.getText(),"");
 
     //Test Condicion de victoria
 
@@ -68,6 +75,7 @@ public class ControlerTest {
     Assertions.assertArrayEquals(juego.getTabla(),TestTabla);
     Assertions.assertEquals(juego.isGanador(), 0);
     Assertions.assertEquals(juego.getXVictories(), 2);
+    Assertions.assertEquals(vista.casilla7.getText(),"");
 
     //Test Condicio empat
 
@@ -77,8 +85,7 @@ public class ControlerTest {
     Assertions.assertArrayEquals(juego.getTabla(),TestTabla);
     Assertions.assertEquals(juego.isGanador(), 0);
     Assertions.assertEquals(juego.getXVictories(), 3);
-
-
+    Assertions.assertEquals(vista.casilla8.getText(),"");
 
   }
 }

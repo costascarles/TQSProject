@@ -33,6 +33,8 @@ public class ControlerTest {
     Assertions.assertArrayEquals(juego.getTabla(),TestTabla);
     Assertions.assertEquals(juego.isGanador(), 0);
     Assertions.assertEquals(vista.casilla1.getText(),"X");
+    Assertions.assertEquals(vista.X_victories.getText(),"0");
+    Assertions.assertEquals(vista.O_victories.getText(),"0");
 
 
     //Test printar posicion 9 --- frontera
@@ -43,6 +45,8 @@ public class ControlerTest {
     Assertions.assertArrayEquals(juego.getTabla(),TestTabla);
     Assertions.assertEquals(juego.isGanador(), 0);
     Assertions.assertEquals(vista.casilla9.getText(),"X");
+    Assertions.assertEquals(vista.X_victories.getText(),"0");
+    Assertions.assertEquals(vista.O_victories.getText(),"0");
 
     //Test printar posicion 5
     //juego.setGanador(0);
@@ -52,6 +56,8 @@ public class ControlerTest {
     Assertions.assertArrayEquals(juego.getTabla(),TestTabla);
     Assertions.assertEquals(juego.isGanador(), 0);
     Assertions.assertEquals(vista.casilla5.getText(),"X");
+    Assertions.assertEquals(vista.X_victories.getText(),"0");
+    Assertions.assertEquals(vista.O_victories.getText(),"0");
 
     //Test Condicion de victoria
 
@@ -66,6 +72,8 @@ public class ControlerTest {
     Assertions.assertEquals(vista.casilla9.getText(),"");
     Assertions.assertEquals(vista.casilla5.getText(),"");
     Assertions.assertEquals(vista.casilla6.getText(),"");
+    Assertions.assertEquals(vista.X_victories.getText(),"1");
+    Assertions.assertEquals(vista.O_victories.getText(),"1");
 
     //Test Condicion de victoria
 
@@ -76,6 +84,8 @@ public class ControlerTest {
     Assertions.assertEquals(juego.isGanador(), 0);
     Assertions.assertEquals(juego.getXVictories(), 2);
     Assertions.assertEquals(vista.casilla7.getText(),"");
+    Assertions.assertEquals(vista.X_victories.getText(),"2");
+    Assertions.assertEquals(vista.O_victories.getText(),"2");
 
     //Test Condicio empat
 
@@ -86,6 +96,8 @@ public class ControlerTest {
     Assertions.assertEquals(juego.isGanador(), 0);
     Assertions.assertEquals(juego.getXVictories(), 3);
     Assertions.assertEquals(vista.casilla8.getText(),"");
+    Assertions.assertEquals(vista.X_victories.getText(),"3");
+    Assertions.assertEquals(vista.O_victories.getText(),"3");
 
   }
 }

@@ -15,5 +15,7 @@ public class MockView extends View{
     casilla7 = new JButton("");
     casilla8 = new JButton("");
     casilla9 = new JButton("");
+    X_victories = new JLabel("0");
+    O_victories = new JLabel("0");
   }
 }

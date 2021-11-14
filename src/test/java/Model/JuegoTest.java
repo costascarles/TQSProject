@@ -29,6 +29,9 @@ public class JuegoTest {
         juego.setMatrixValue(0,0,"O"); //Test that is not possible modify the not empty position
         juego.setMatrixValue(2,2,"O"); //Test the top matrix limit
         juego.setMatrixValue(4,0,"X"); //Test matrix segment violation
+        juego.setMatrixValue(-1,0,"X");
+        juego.setMatrixValue(0,4,"X"); //Test matrix segment violation
+        juego.setMatrixValue(0,-1,"X");
         String[][] tableroTest=new String[3][3];
         tableroTest[0][0]="X";
         tableroTest[2][2]="O";

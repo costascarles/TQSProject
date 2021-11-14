@@ -42,6 +42,8 @@ public class JuegoTest {
         juego.pintarMarca(1,"X"); //Test the correct position conversion Button
         juego.pintarMarca(9,"O"); //Test the correct position conversion Top
         juego.pintarMarca(10,"X"); //Test wrong position selection
+        juego.pintarMarca(0,"X");
+
         String[][] tableroTest=new String[3][3];
         tableroTest[0][0]="X";
         tableroTest[2][2]="O";
@@ -54,13 +56,13 @@ public class JuegoTest {
                                   {null,null,null} };
         //empezamos en turno 0, pintamos en pos 1
         Assertions.assertEquals(juego.turno(1),"X");
-        Assertions.assertEquals(juego.getTurno(), 1);
-        Assertions.assertEquals(juego.turno(1),"X");
-
+        Assertions.assertEquals(juego.turno(1),"X"); //Si se pinta la misma posición
+        Assertions.assertEquals(juego.getTurno(), 1); //Turno correcto
 
         //ahora estamos en turno 1, pintmos en 3
         Assertions.assertEquals(juego.turno(3),"O");
-        Assertions.assertEquals(juego.getTurno(), 0);
+        Assertions.assertEquals(juego.turno(3),"O"); //Si se pinta la misma posición
+        Assertions.assertEquals(juego.getTurno(), 0);//Turno correcto
 
         //estamos en turno 0, pintamos en 1, no debemos cambiar de turno.
         Assertions.assertEquals(juego.turno(1),"O");
@@ -93,7 +95,7 @@ public class JuegoTest {
         String[][] tableroTest2_1= { {null,null,"O"},
                                      {null,"O",null},
                                      {"O",null,null} };
-        //condicion de victoria diagonal
+        //condicion de no victoria diagonal
         Assertions.assertTrue(juego.winner(tableroTest2_1,juego.getCirculo()));
 
         String[][] tableroTest3= { {"X",null,"X"},
@@ -105,8 +107,8 @@ public class JuegoTest {
 
 
         String[][] tableroTest4= { {null,null,null},
-                                  {"O","O","O"},
-                                  {null,null,null} };
+                                   {"O","O","O"},
+                                   {null,null,null} };
         //condicion de victoria fila
         Assertions.assertTrue(juego.winner(tableroTest4,juego.getCirculo()));
         Assertions.assertFalse(juego.winner(tableroTest4,juego.getCruz()));
@@ -117,6 +119,13 @@ public class JuegoTest {
         //condicion de victoria fila
         Assertions.assertTrue(juego.winner(tableroTest5,juego.getCruz()));
         Assertions.assertFalse(juego.winner(tableroTest5,juego.getCirculo()));
+
+        String[][] tableroTest5_1= { {"X","O","O"},
+                                        {"X","O","O"},
+                                       {"X","X","X"} };
+        //condicion de victoria fila
+        Assertions.assertTrue(juego.winner(tableroTest5_1,juego.getCruz()));
+        Assertions.assertFalse(juego.winner(tableroTest5_1,juego.getCirculo()));
 
         String[][] tableroTest6= { {"X",null,"X"},
                                    {"X","X","O"},
@@ -139,6 +148,12 @@ public class JuegoTest {
         Assertions.assertTrue(juego.winner(tableroTest8,juego.getCruz()));
         Assertions.assertFalse(juego.winner(tableroTest8,juego.getCirculo()));
 
+        String[][] tableroTest8_1= { {"X",null,null},
+                                     {"X",null,null},
+                                     {"X",null,null} };
+        //condicion de victoria columna
+        Assertions.assertTrue(juego.winner(tableroTest8_1,juego.getCruz()));
+        Assertions.assertFalse(juego.winner(tableroTest8_1,juego.getCirculo()));
 
     }
     @Test

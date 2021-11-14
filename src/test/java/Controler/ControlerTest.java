@@ -24,8 +24,8 @@ public class ControlerTest {
     controler = new Controler(vista, juego);
   }
   @Test
-  void Panelmensaje(){
-    
+  void CreateMessageTest(){
+
     juego.setGanador(1);
     String message;
     message = controler.CreateMessage(" 'X' ");

@@ -7,6 +7,7 @@ public class ViewMessage {
   ViewMessage(){
     JugarOtraVez = new JOptionPane();
   }
+
   public int panel_JugarOtraVez(String message){
     int seleccion = JugarOtraVez.showOptionDialog(null,message, "Fin del juego",
         JOptionPane.YES_NO_CANCEL_OPTION,
@@ -17,4 +18,6 @@ public class ViewMessage {
 
     return seleccion;
   }
+
+
 }

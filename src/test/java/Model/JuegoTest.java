@@ -22,6 +22,8 @@ public class JuegoTest {
         Assertions.assertEquals(juego.getCirculo(),"O");
         Assertions.assertEquals(juego.isGanador(),0);
         Assertions.assertArrayEquals(juego.getTablero(),new String[3][3]);
+        Assertions.assertEquals(juego.getXVictories(),0);
+        Assertions.assertEquals(juego.getOVictories(),0);
     }
     @Test
     void setMatrixValueTest(){
